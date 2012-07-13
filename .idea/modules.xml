@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/programming-challenges/programming-challenges.iml" filepath="$PROJECT_DIR$/programming-challenges/programming-challenges.iml" />
+      <module fileurl="file://$PROJECT_DIR$/puzzles/puzzles.iml" filepath="$PROJECT_DIR$/puzzles/puzzles.iml" />
+    </modules>
+  </component>
+</project>
+
