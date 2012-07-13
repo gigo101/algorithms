@@ -25,10 +25,10 @@ public class TowerOfHanoi {
             return;
         }
 
-        int emptyPeg = PEGSUM - srcPeg - dstPeg;
+        int tmpPeg = PEGSUM - srcPeg - dstPeg;
 
-        processSolution(noDisks - 1, srcPeg, emptyPeg);
+        processSolution(noDisks - 1, srcPeg, tmpPeg);
         System.out.printf("Move disc %d from peg %d to peg %d.\n", noDisks, srcPeg, dstPeg);
-        processSolution(noDisks - 1, emptyPeg, dstPeg);
+        processSolution(noDisks - 1, tmpPeg, dstPeg);
     }
 }
