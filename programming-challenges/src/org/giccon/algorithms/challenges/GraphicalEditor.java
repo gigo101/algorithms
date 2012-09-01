@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc, simulation */
 
 import java.util.ArrayDeque;
 import java.util.Queue;

@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Algorithm using backtracking and partitioning */
+/* Solution: backtracking, partitioning */
 
 import java.util.ArrayList;
 import java.util.HashMap;

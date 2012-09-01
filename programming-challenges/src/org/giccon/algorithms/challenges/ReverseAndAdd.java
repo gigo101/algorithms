@@ -1,5 +1,7 @@
 package org.giccon.algorithms.challenges;
 
+/* Solution: ad hoc, elementary arithmetic */
+
 import java.util.Scanner;
 
 public class ReverseAndAdd {
@@ -20,13 +22,15 @@ public class ReverseAndAdd {
     private static String getPalindromeInfo(long n) {
         boolean isNegative = n < 0;
         n = isNegative ? -n : n;
-        long rev = Long.valueOf(new StringBuilder().append(n).reverse().toString());
-        int noItrs = 0;
-        while (n != rev) {
+
+        long rev = 0;
+        int noItrs = -1;
+        do {
             n += rev;
-            rev = Long.valueOf(new StringBuilder().append(n).reverse().toString());
             noItrs++;
-        }
+            rev = Long.valueOf(new StringBuilder().append(n).reverse().toString());
+        } while (n != rev);
+
         n = isNegative ? -n : n;
 
         return noItrs + " " + n;

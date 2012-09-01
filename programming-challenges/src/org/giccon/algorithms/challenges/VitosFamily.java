@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm using mean */
+/* Solution: sorting, median selection */
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,23 +33,23 @@ public class VitosFamily {
 
         Collections.sort(addresses);
 
-        // Calculate the mean.
-        int mean;
+        // Calculate the median.
+        int median;
         if (addresses.size() % 2 == 0) {
             // even number
             int index1 = addresses.size() / 2 - 1;
             int index2 = addresses.size() / 2;
-            mean = (addresses.get(index1) + addresses.get(index2)) / 2;
+            median = (addresses.get(index1) + addresses.get(index2)) / 2;
         } else {
             // odd number
             int index = addresses.size() / 2;
-            mean = addresses.get(index);
+            median = addresses.get(index);
         }
 
         // Calculate the distance.
         int dist = 0;
         for (Integer addr : addresses) {
-            dist += Math.abs(mean - addr);
+            dist += Math.abs(median - addr);
         }
 
         return dist;

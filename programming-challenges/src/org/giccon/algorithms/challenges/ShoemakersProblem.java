@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Greedy algorithm, using ratio (finePerDay / noDaysOfDelay) and sorting */
+/* Solution: greedy, sorting */
 
 import java.util.*;
 

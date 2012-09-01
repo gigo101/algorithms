@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Algorithm using BFS on arrays */
+/* Solution: graph, breadth first search */
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

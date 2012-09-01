@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc, simulation */
 
 import java.util.ArrayList;
 import java.util.LinkedList;

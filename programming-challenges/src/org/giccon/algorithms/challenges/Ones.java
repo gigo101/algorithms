@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm using modular arithmetic*/
+/* Solution: number theory, modular arithmetic */
 
 import java.util.Scanner;
 

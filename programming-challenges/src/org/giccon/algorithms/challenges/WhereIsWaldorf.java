@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc, sorting */
 
 import java.util.Collections;
 import java.util.LinkedList;

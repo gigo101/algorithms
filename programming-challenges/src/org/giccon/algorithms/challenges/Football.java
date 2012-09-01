@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple Algorithm */
+/* Solution: ad hoc, sorting */
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;

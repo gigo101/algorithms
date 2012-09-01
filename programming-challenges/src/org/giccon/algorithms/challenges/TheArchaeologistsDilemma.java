@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Algorithm based on math logarithm theory and brute force). */
+/* Solution: logarithm theory, brute force */
 
 import java.util.Scanner;
 
@@ -14,8 +14,8 @@ import java.util.Scanner;
  * ceil(lower part / left part of N) = floor(upper part / right part of N)
  */
 public class TheArchaeologistsDilemma {
-    private static int MAX_TIME = 5000; // try for no more than 5 seconds.
-    private static double R = Math.log(10) / Math.log(2);
+    private static final int MAX_TIME = 5000; // try for no more than 5 seconds.
+    private static final double R = Math.log(10) / Math.log(2);
 
     public static void main(String[] args) {
         TheArchaeologistsDilemma.begin();

@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc, sorting, simulation */
 
 import java.text.DecimalFormat;
 import java.util.*;

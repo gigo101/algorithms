@@ -1,8 +1,19 @@
 package org.giccon.algorithms.challenges;
 
+/* Solution: game theory, logarithm theory. */
+
 import java.util.Scanner;
 
+/**
+ * For mathematical explanation see:
+ * <a href="http://algorithms.giccon.org/wp-content/uploads/2012/07/proof-of-the-multiplication-game.pdf">
+ * proof of the multiplication game
+ * </a>
+ */
 public class MultiplicationGame {
+    private static final double LOG_OF_9 = Math.log(9);
+    private static final double LOG_OF_18 = Math.log(18);
+
     public static void main(String args[]) {
         MultiplicationGame.begin();
     }
@@ -26,24 +37,12 @@ public class MultiplicationGame {
     }
 
     private static int getWinner(long g) {
-        int winner = 2;
-        int n = 0;
-        while (calcLeft(n) <= g) {
-            n++;
-        }
-        n--;
-        if (calcRight(n) >= g) {
-            winner = 1;
-        }
+        double n1 = (Math.log(g) - LOG_OF_9) / LOG_OF_18;
+        double n2 = (Math.log(g) - LOG_OF_18) / LOG_OF_18;
 
-        return winner;
-    }
+        n1 = Math.ceil(n1 - 0.000000000000004) - n1;
+        n2 = Math.ceil(n2 - 0.000000000000004) - n2;
 
-    private static long calcLeft(int n) {
-        return (1 << n) * (long) Math.pow(9, n) + 1;
-    }
-
-    private static long calcRight(int n) {
-        return (1 << n) * (long) Math.pow(9, n + 1);
+        return n1 < n2 ? 1 : 2;
     }
 }

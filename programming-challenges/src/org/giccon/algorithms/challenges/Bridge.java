@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc, sorting */
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -120,7 +120,7 @@ public class Bridge {
         int sp2 = left.remove(left.indexOf(l2));
         right.add(sp1);
         right.add(sp2);
-        sb.append(sp1 + " " + sp2 + "\n");
+        sb.append(sp1).append(" ").append(sp2).append("\n");
         int travelTime = sp2;
 
         if (doReturnLight) {

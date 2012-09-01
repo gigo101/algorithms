@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Simple algorithm */
+/* Solution: ad hoc */
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

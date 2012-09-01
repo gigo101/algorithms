@@ -1,5 +1,7 @@
 package org.giccon.algorithms.challenges;
 
+/* Solution: ad hoc, elementary arithmetic */
+
 import java.util.Scanner;
 
 public class PrimaryArithmetic {

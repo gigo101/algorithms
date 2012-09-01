@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Algorithm using dynamic programming with bitmasks */
+/* Solution: dynamic programming with bitmasks */
 
 import java.util.Arrays;
 import java.util.Scanner;

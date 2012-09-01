@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Algorithm using graph and breadth first search and depth first search */
+/* Solution: graph, breadth first search, depth first search */
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
