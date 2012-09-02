@@ -61,41 +61,41 @@ class MultiplicationGameTest {
         //MultiplicationGame.begin();
 
         SecureRandom r = new SecureRandom();
-        List<Integer> ints = new LinkedList<Integer>();
-        for (int y = 0; y < 10000000; y++) {
-            ints.add(r.nextInt(2147483647) + r.nextInt(2147483647) + 2);
+        List<Long> numbers = new LinkedList<Long>();
+        for (int y = 0; y < 1000; y++) {
+            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
         }
 
-        runWinner(ints);
-        runWinner2(ints);
-        runWinner3(ints);
+        runWinner(numbers);
+        runWinner2(numbers);
+        runWinner3(numbers);
 
         r = new SecureRandom();
-        ints.clear();
-        for (int y = 0; y < 10000000; y++) {
-            ints.add(r.nextInt(2147483647) + r.nextInt(2147483647) + 2);
+        numbers.clear();
+        for (int y = 0; y < 1000; y++) {
+            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
         }
 
-        runWinner2(ints);
-        runWinner(ints);
-        runWinner3(ints);
+        runWinner2(numbers);
+        runWinner(numbers);
+        runWinner3(numbers);
 
         r = new SecureRandom();
-        ints.clear();
-        for (int y = 0; y < 10000000; y++) {
-            ints.add(r.nextInt(2147483647) + r.nextInt(2147483647) + 2);
+        numbers.clear();
+        for (int y = 0; y < 1000; y++) {
+            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
         }
 
-        runWinner3(ints);
-        runWinner2(ints);
-        runWinner(ints);
+        runWinner3(numbers);
+        runWinner2(numbers);
+        runWinner(numbers);
     }
 
-    private static void runWinner(List<Integer> ints) {
+    private static void runWinner(List<Long> numbers) {
         long total = 0;
         for (int i = 0; i < 5; i++) {
             long start = System.currentTimeMillis();
-            for (int g : ints) {
+            for (long g : numbers) {
                 getWinner(g);
             }
             total += System.currentTimeMillis() - start;
@@ -103,11 +103,11 @@ class MultiplicationGameTest {
         System.out.println("Winner = " + total / 5);
     }
 
-    private static void runWinner2(List<Integer> ints) {
+    private static void runWinner2(List<Long> numbers) {
         long total = 0;
         for (int i = 0; i < 5; i++) {
             long start = System.currentTimeMillis();
-            for (int g : ints) {
+            for (long g : numbers) {
                 getWinner2(g);
             }
             total += System.currentTimeMillis() - start;
@@ -115,11 +115,11 @@ class MultiplicationGameTest {
         System.out.println("Winner2 = " + total / 5);
     }
 
-    private static void runWinner3(List<Integer> ints) {
+    private static void runWinner3(List<Long> numbers) {
         long total = 0;
         for (int i = 0; i < 5; i++) {
             long start = System.currentTimeMillis();
-            for (int g : ints) {
+            for (long g : numbers) {
                 getWinner3(g);
             }
             total += System.currentTimeMillis() - start;
