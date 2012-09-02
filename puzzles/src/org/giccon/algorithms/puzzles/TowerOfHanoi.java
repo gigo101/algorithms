@@ -1,6 +1,6 @@
 package org.giccon.algorithms.puzzles;
 
-/* Simple algorithm using recursion */
+/* Solution: recursion */
 
 import java.util.Scanner;
 
