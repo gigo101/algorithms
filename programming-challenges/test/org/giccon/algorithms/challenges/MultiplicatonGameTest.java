@@ -77,7 +77,7 @@ class MultiplicationGameTest {
         runWinner(numbers);
         runWinner3(numbers);
 
-        Collections.shuffle(numbers);
+        Collections.shuffle(numbers, r);
         runWinner3(numbers);
         runWinner2(numbers);
         runWinner(numbers);
