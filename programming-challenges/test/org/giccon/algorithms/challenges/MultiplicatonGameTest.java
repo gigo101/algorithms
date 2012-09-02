@@ -61,31 +61,23 @@ class MultiplicationGameTest {
         //MultiplicationGame.begin();
 
         SecureRandom r = new SecureRandom();
+
         List<Long> numbers = new LinkedList<Long>();
-        for (int y = 0; y < 1000; y++) {
-            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
+        for (long y = 2; y < 10000000; y++) {
+            numbers.add(y);
         }
 
+        Collections.shuffle(numbers, r);
         runWinner(numbers);
         runWinner2(numbers);
         runWinner3(numbers);
 
-        r = new SecureRandom();
-        numbers.clear();
-        for (int y = 0; y < 1000; y++) {
-            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
-        }
-
+        Collections.shuffle(numbers, r);
         runWinner2(numbers);
         runWinner(numbers);
         runWinner3(numbers);
 
-        r = new SecureRandom();
-        numbers.clear();
-        for (int y = 0; y < 1000; y++) {
-            numbers.add((long) r.nextInt(2147483647) + (long) r.nextInt(2147483647) + 2);
-        }
-
+        Collections.shuffle(numbers);
         runWinner3(numbers);
         runWinner2(numbers);
         runWinner(numbers);
