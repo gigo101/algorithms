@@ -1,6 +1,6 @@
 package org.giccon.algorithms.challenges;
 
-/* Solution: game theory, logarithm theory. */
+/* Solution: game theory, exponentiation */
 
 import java.util.ArrayList;
 import java.util.List;
