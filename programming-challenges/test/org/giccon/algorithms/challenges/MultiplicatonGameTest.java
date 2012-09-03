@@ -5,7 +5,6 @@ package org.giccon.algorithms.challenges;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * For mathematical explanation see:
@@ -105,7 +104,7 @@ class MultiplicationGameTest {
     }
 
     private static Player getWinner1(long g) {
-        double q = Math.log(g) / LOG_OF_18;
+        double q = Math.log(g) / LOG_OF_18 - 0.000000000000004;
         return Math.ceil(q + LOG_2_DIV_LOG_18) > Math.ceil(q) ? Player.OLLIE : Player.STAN;
     }
 
