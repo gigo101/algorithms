@@ -2,6 +2,8 @@ package org.giccon.algorithms.challenges;
 
 /* Solution: game theory, logarithm theory. */
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,8 +13,23 @@ import java.util.Scanner;
  * </a>
  */
 public class MultiplicationGame {
-    private static final double LOG_OF_9 = Math.log(9);
-    private static final double LOG_OF_18 = Math.log(18);
+    private static enum Player {
+        STAN, OLLIE
+    }
+
+    private static final List<Integer> MAX_VALUES = new ArrayList<Integer>();
+
+    static {
+        int c = 1;
+        for (int n = 0; n <= 13; n++) {
+            if (n % 2 == 0) {
+                c *= 9;
+            } else {
+                c *= 2;
+            }
+            MAX_VALUES.add(c);
+        }
+    }
 
     public static void main(String args[]) {
         MultiplicationGame.begin();
@@ -22,12 +39,12 @@ public class MultiplicationGame {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextLong()) {
             long g = sc.nextLong();
-            int w = getWinner(g);
-            switch (w) {
-                case 1:
+            Player winner = getWinner(g);
+            switch (winner) {
+                case STAN:
                     System.out.println("Stan wins.");
                     break;
-                case 2:
+                case OLLIE:
                     System.out.println("Ollie wins.");
                     break;
                 default:
@@ -36,13 +53,17 @@ public class MultiplicationGame {
         }
     }
 
-    private static int getWinner(long g) {
-        double n1 = (Math.log(g) - LOG_OF_9) / LOG_OF_18;
-        double n2 = (Math.log(g) - LOG_OF_18) / LOG_OF_18;
+    private static Player getWinner(long g) {
+        Player winner = Player.STAN;
+        for (int n = MAX_VALUES.size() - 1; n >= 0; n--) {
+            if (g > MAX_VALUES.get(n)) {
+                if (n % 2 == 0) {
+                    winner = Player.OLLIE;
+                }
+                break;
+            }
+        }
 
-        n1 = Math.ceil(n1 - 0.000000000000004) - n1;
-        n2 = Math.ceil(n2 - 0.000000000000004) - n2;
-
-        return n1 < n2 ? 1 : 2;
+        return winner;
     }
 }

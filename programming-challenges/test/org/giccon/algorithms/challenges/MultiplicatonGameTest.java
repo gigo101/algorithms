@@ -2,8 +2,10 @@ package org.giccon.algorithms.challenges;
 
 /* Solution: game theory, logarithm theory */
 
-import java.security.SecureRandom;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * For mathematical explanation see:
@@ -58,86 +60,51 @@ class MultiplicationGameTest {
     }
 
     public static void main(String args[]) {
-        //MultiplicationGame.begin();
-
-        SecureRandom r = new SecureRandom();
-
-        List<Long> numbers = new LinkedList<Long>();
-        for (long y = 2; y < 10000000; y++) {
-            numbers.add(y);
-        }
-
-        Collections.shuffle(numbers, r);
-        runWinner(numbers);
-        runWinner2(numbers);
-        runWinner3(numbers);
-
-        Collections.shuffle(numbers, r);
-        runWinner2(numbers);
-        runWinner(numbers);
-        runWinner3(numbers);
-
-        Collections.shuffle(numbers, r);
-        runWinner3(numbers);
-        runWinner2(numbers);
-        runWinner(numbers);
+        runGetWinnerSolution1();
+        runGetWinnerSolution2();
+        runGetWinnerSolution3();
     }
 
-    private static void runWinner(List<Long> numbers) {
-        long total = 0;
-        for (int i = 0; i < 5; i++) {
-            long start = System.currentTimeMillis();
-            for (long g : numbers) {
-                getWinner(g);
-            }
-            total += System.currentTimeMillis() - start;
+    private static void runGetWinnerSolution1() {
+        long[] scores = new long[2];
+        long start = System.currentTimeMillis();
+        for (long n = 2; n < 4294967295l; n++) {
+            scores[getWinner1(n).ordinal()]++;
         }
-        System.out.println("Winner = " + total / 5);
+
+        printTestResults("runGetWinnerSolution1", scores, (System.currentTimeMillis() - start));
+
     }
 
-    private static void runWinner2(List<Long> numbers) {
-        long total = 0;
-        for (int i = 0; i < 5; i++) {
-            long start = System.currentTimeMillis();
-            for (long g : numbers) {
-                getWinner2(g);
-            }
-            total += System.currentTimeMillis() - start;
+    private static void runGetWinnerSolution2() {
+        long[] scores = new long[2];
+        long start = System.currentTimeMillis();
+        for (long n = 2; n < 4294967295l; n++) {
+            scores[getWinner2(n).ordinal()]++;
         }
-        System.out.println("Winner2 = " + total / 5);
+
+        printTestResults("runGetWinnerSolution2", scores, (System.currentTimeMillis() - start));
     }
 
-    private static void runWinner3(List<Long> numbers) {
-        long total = 0;
-        for (int i = 0; i < 5; i++) {
-            long start = System.currentTimeMillis();
-            for (long g : numbers) {
-                getWinner3(g);
-            }
-            total += System.currentTimeMillis() - start;
+    private static void runGetWinnerSolution3() {
+        long[] scores = new long[2];
+        long start = System.currentTimeMillis();
+        for (long n = 2; n < 4294967295l; n++) {
+            scores[getWinner3(n).ordinal()]++;
         }
-        System.out.println("Winner3 = " + total / 5);
+
+        printTestResults("runGetWinnerSolution3", scores, (System.currentTimeMillis() - start));
     }
 
-    private static void begin() {
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNextLong()) {
-            long g = sc.nextLong();
-            Player winner = getWinner3(g);
-            switch (winner) {
-                case STAN:
-                    System.out.println("Stan wins.");
-                    break;
-                case OLLIE:
-                    System.out.println("Ollie wins.");
-                    break;
-                default:
-                    break;
-            }
-        }
+    private static void printTestResults(String winner, long[] scores, long duration) {
+        System.out.println(winner + " " + duration);
+        System.out.println((double) scores[0] / scores[1]);
+        System.out.println(scores[0]);
+        System.out.println(scores[1]);
+        System.out.println();
     }
 
-    private static Player getWinner(long g) {
+    private static Player getWinner1(long g) {
         double q = Math.log(g) / LOG_OF_18;
         return Math.ceil(q + LOG_2_DIV_LOG_18) > Math.ceil(q) ? Player.OLLIE : Player.STAN;
     }
