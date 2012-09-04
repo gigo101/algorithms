@@ -2,8 +2,6 @@ package org.giccon.algorithms.challenges;
 
 /* Solution: game theory, exponentiation */
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,7 +15,7 @@ public class MultiplicationGame {
         STAN, OLLIE
     }
 
-    private static final List<Integer> MAX_VALUES = new ArrayList<Integer>();
+    private static final int[] MAX_VALUES = new int[14];
 
     static {
         int c = 1;
@@ -27,7 +25,7 @@ public class MultiplicationGame {
             } else {
                 c *= 2;
             }
-            MAX_VALUES.add(c);
+            MAX_VALUES[n] = c;
         }
     }
 
@@ -55,8 +53,8 @@ public class MultiplicationGame {
 
     private static Player getWinner(long g) {
         Player winner = Player.STAN;
-        for (int n = MAX_VALUES.size() - 1; n >= 0; n--) {
-            if (g > MAX_VALUES.get(n)) {
+        for (int n = MAX_VALUES.length - 1; n >= 0; n--) {
+            if (g > MAX_VALUES[n]) {
                 if (n % 2 == 0) {
                     winner = Player.OLLIE;
                 }

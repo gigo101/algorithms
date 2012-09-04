@@ -17,7 +17,7 @@ class MultiplicationGameTest {
 
     private static final double LOG_OF_18 = Math.log(18);
     private static final double LOG_2_DIV_LOG_18 = Math.log(2) / Math.log(18);
-    private static final List<Integer> MAX_VALUES = new ArrayList<Integer>();
+    private static final int[] MAX_VALUES = new int[14];
     private static final List<Range> RANGE_VALUES = new ArrayList<Range>();
 
     static {
@@ -28,7 +28,7 @@ class MultiplicationGameTest {
             } else {
                 c *= 2;
             }
-            MAX_VALUES.add(c);
+            MAX_VALUES[n] = c;
         }
 
         for (int n = 0; n <= 7; n++) {
@@ -108,8 +108,8 @@ class MultiplicationGameTest {
 
     private static Player getWinner2(long g) {
         Player winner = Player.STAN;
-        for (int n = MAX_VALUES.size() - 1; n >= 0; n--) {
-            if (g > MAX_VALUES.get(n)) {
+        for (int n = MAX_VALUES.length - 1; n >= 0; n--) {
+            if (g > MAX_VALUES[n]) {
                 if (n % 2 == 0) {
                     winner = Player.OLLIE;
                 }
